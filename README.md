@@ -1,11 +1,19 @@
 First time setup:
+
 Install VS code and clone/open the project folder
+
 For frontend:
-Open terminal and navigate to student_industry folder using command $ cd student_industry.
-To confirm we install correct packages for React, we remove node_modules folder by using $ rm -rf node_modules command.
-Also remove package-lock.json file if present by $ rm -rf package-lock.json
-Now reinstall React packages (node_modules) by running $ npm install command.
-To run the ReactJS application use the command $ npm start.
+
+Open terminal and navigate to student_industry folder using command 
+$ cd student_industry.
+To confirm we install correct packages for React, we remove node_modules folder by using 
+$ rm -rf node_modules command.
+Also remove package-lock.json file if present by 
+$ rm -rf package-lock.json
+Now reinstall React packages (node_modules) by running 
+$ npm install 
+To run the ReactJS application use the command 
+$ npm start.
 For backend:
 Open terminal, make sure you are the parent folder of the project
 Run the following commands:
