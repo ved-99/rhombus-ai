@@ -32,10 +32,10 @@ class UploadCsv(APIView):
       print(script_output)
       processed_data = script_output.stdout
       print(script_output.stdout)
-      file = Datatype(file=file,filepath=filename,dtype=processed_data)
+      file = Datatype(file=file,filepath=file.name,dtype=processed_data)
       file.save()
 
-      return Response({"msg":"successful"}, status=status.HTTP_201_CREATED)
+      return Response({"msg":"successful"}, status=status.HTTP_200_OK)
     return Response({"msg":"Error"},status=status.HTTP_400_BAD_REQUEST)
 
 class GetDetails(APIView):
@@ -46,6 +46,17 @@ class GetDetails(APIView):
       return Response(serialized_data.data, status.HTTP_200_OK)
     except Exception as e:
       return Response({'errors': str(e)}, status.HTTP_400_BAD_REQUEST)
+
+class GetDetailsById(APIView):
+  def get(self,req, pk, format=None):
+    try:
+      file = get_object_or_404(Datatype, id=pk)
+      serialised = ViewAllDatatype(file)
+      return Response(serialised.data, status.HTTP_200_OK)
+    except Exception as e:
+      return Response({'errors': str(e)}, status.HTTP_400_BAD_REQUEST)
+
+
 
 class UpdateDetails(generics.UpdateAPIView):
   serializer_class = UpdateDatatypeSerializer

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.messages",
+    'corsheaders',
     "django.contrib.staticfiles",
     "process"
 ]
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "rhombus.urls"
@@ -99,6 +101,29 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding', 'access-control-allow-headers',
+                      'content-type', 'accept', 'origin', 'authorization', 'authentication')
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://127.0.0.1:8000",
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
