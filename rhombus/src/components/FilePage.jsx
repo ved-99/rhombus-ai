@@ -106,7 +106,7 @@ const FilePage = () => {
     <>
       <Box margin={'10%'}>
         <Card>
-          
+          {console.log(dtype)}
           <Box display={'flex'} justifyContent={'center'} flexDirection={'column'}>
             {Object.entries(dtype.dtype).map(([k, v]) => (
 
